@@ -1,4 +1,77 @@
-const openButton=document.getElementById('open');const cover=document.getElementById('cover');const invitation=document.getElementById('invitation');const music=document.getElementById('music');const musicToggle=document.getElementById('musicToggle');
-openButton.addEventListener('click',async()=>{invitation.classList.add('visible');invitation.setAttribute('aria-hidden','false');cover.classList.add('hide');musicToggle.hidden=false;try{await music.play();musicToggle.classList.remove('muted')}catch(e){musicToggle.classList.add('muted')}setTimeout(()=>{cover.hidden=true},1100)});
-musicToggle.addEventListener('click',async()=>{if(music.paused){try{await music.play();musicToggle.classList.remove('muted')}catch(e){}}else{music.pause();musicToggle.classList.add('muted')}});
-const eventTime=new Date('2026-11-01T13:15:00+03:00').getTime();function updateCountdown(){let diff=Math.max(0,eventTime-Date.now());const day=Math.floor(diff/86400000);diff%=86400000;const hr=Math.floor(diff/3600000);diff%=3600000;const min=Math.floor(diff/60000);const sec=Math.floor((diff%60000)/1000);[['days',day],['hours',hr],['minutes',min],['seconds',sec]].forEach(([id,n])=>document.getElementById(id).textContent=String(n).padStart(2,'0'))}updateCountdown();setInterval(updateCountdown,1000);
+
+const cover = document.getElementById('cover');
+const openButton = document.getElementById('open');
+const invitation = document.getElementById('invitation');
+const music = document.getElementById('music');
+const toggle = document.getElementById('musicToggle');
+
+music.volume = 1;
+
+function syncMusic() {
+  toggle.classList.toggle('muted', music.paused);
+  toggle.setAttribute(
+    'aria-label',
+    music.paused ? 'Müziği aç' : 'Müziği kapat'
+  );
+}
+
+openButton.addEventListener('click', () => {
+  if (!cover.classList.contains('hide')) {
+    const result = music.play();
+
+    if (result && result.catch) {
+      result.catch(() => syncMusic());
+    }
+
+    invitation.classList.add('visible');
+    invitation.inert = false;
+    cover.classList.add('hide');
+    toggle.hidden = false;
+    syncMusic();
+
+    setTimeout(() => {
+      cover.hidden = true;
+    }, 1100);
+  }
+});
+
+toggle.addEventListener('click', () => {
+  if (music.paused) {
+    const result = music.play();
+
+    if (result && result.catch) {
+      result.catch(() => syncMusic());
+    }
+  } else {
+    music.pause();
+  }
+});
+
+music.addEventListener('play', syncMusic);
+music.addEventListener('pause', syncMusic);
+
+music.addEventListener('error', () => {
+  toggle.classList.add('muted');
+  toggle.title = 'Müzik dosyası yüklenemedi';
+});
+
+const target = new Date('2026-11-01T13:15:00+03:00').getTime();
+
+function tick() {
+  let d = Math.max(0, target - Date.now());
+
+  const v = [
+    Math.floor(d / 86400000),
+    Math.floor(d / 3600000) % 24,
+    Math.floor(d / 60000) % 60,
+    Math.floor(d / 1000) % 60
+  ];
+
+  ['days', 'hours', 'minutes', 'seconds'].forEach((id, i) => {
+    document.getElementById(id).textContent =
+      String(v[i]).padStart(2, '0');
+  });
+}
+
+tick();
+setInterval(tick, 1000);
