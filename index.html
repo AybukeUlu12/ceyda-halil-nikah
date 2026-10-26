@@ -1,17 +1,27 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f7f2e9"><title>Ceyda ve Halil | Nikâh Davetiyesi</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css?v=20261026-1"></head><body>
-<div id="cover" class="cover"><img src="kapak.jpg" alt="Ceyda ve Halil davetiye kapağı"><button id="open" aria-label="Mühre dokunarak davetiyeyi aç"></button></div>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f2e9">
+<title>Ceyda & Halil | Nikâh Davetiyesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=final-2">
+</head>
+<body>
+<div id="cover" class="cover"><img src="kapak.jpg" alt="Ceyda ve Halil nikâh davetiyesi kapağı"><button id="open" aria-label="Davetiyeyi aç"></button></div>
 <main id="invitation" class="invitation" inert>
-<div class="border" aria-hidden="true"></div>
-<img class="floral floral-top" src="cicek-ust.png" alt="" aria-hidden="true"><img class="floral floral-bottom" src="cicek-alt.png" alt="" aria-hidden="true">
-<section class="hero">
-<div class="names"><img src="isimler.png" alt="Ceyda ve Halil"></div>
-<h1>NİKÂH TÖRENİMİZE<br>DAVETLİSİNİZ</h1>
-<div class="date-row"><div class="date-col"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4M17 3v4M3 10h18M7 14h2M12 14h2"/></svg><strong>1 KASIM 2026</strong><small>PAZAR</small></div><div class="date-separator"></div><div class="date-col"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v7l5 3"/></svg><strong>13:15</strong><small>SAAT</small></div></div>
-<p class="quote">Bu özel günde mutluluğumuzu<br class="wide-only"> sizinle paylaşmak bizi çok mutlu edecek.</p>
-<div class="ornament"><span></span>✦<span></span></div>
-</section>
-<section class="countdown-section"><h2>ÖZEL GÜNÜMÜZE<br>KALAN SÜRE</h2><div class="countdown"><div><strong id="days">00</strong><small>GÜN</small></div><div><strong id="hours">00</strong><small>SAAT</small></div><div><strong id="minutes">00</strong><small>DK</small></div><div><strong id="seconds">00</strong><small>SN</small></div></div><div class="star">✦</div></section>
-<section class="venue"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><h2>DENİZLİ<br>MERKEZEFENDİ KÜLTÜR<br>MERKEZİ</h2><div class="map"><iframe title="Denizli Merkezefendi Kültür Merkezi konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Merkezefendi%20K%C3%BClt%C3%BCr%20Merkezi%20Denizli&output=embed"></iframe></div><a class="directions" href="https://maps.app.goo.gl/uxKnvJDo62g8kEkaA?g_st=iw" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg>YOL TARİFİ AL</a></section>
-</main>
-<button id="musicToggle" class="music-toggle" aria-label="Müziği aç veya kapat" hidden>♫</button><audio id="music" src="muzik.mp3" loop preload="none"></audio><script src="script.js?v=20261026-1"></script></body></html>
+<div class="artboard">
+<img class="reference" src="davetiye.png" alt="Ceyda ve Halil nikâh davetiyesi, 1 Kasım 2026 Pazar saat 13.15, Denizli Merkezefendi Kültür Merkezi">
+<div class="time-number n1" id="days" aria-label="Kalan gün">00</div>
+<div class="time-number n2" id="hours" aria-label="Kalan saat">00</div>
+<div class="time-number n3" id="minutes" aria-label="Kalan dakika">00</div>
+<div class="time-number n4" id="seconds" aria-label="Kalan saniye">00</div>
+<div class="live-map"><iframe title="Merkezefendi Kültür Merkezi haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Merkezefendi%20K%C3%BClt%C3%BCr%20Merkezi%20Denizli&output=embed"></iframe></div>
+<a class="route" href="https://maps.app.goo.gl/uxKnvJDo62g8kEkaA?g_st=iw" target="_blank" rel="noopener noreferrer" aria-label="Yol tarifi al"></a>
+<button id="musicToggle" class="music" aria-label="Müziği aç veya kapat"></button>
+</div></main>
+<audio id="musicAudio" src="muzik.mp3" preload="none" loop></audio>
+<script src="script.js?v=final-2"></script>
+</body></html>
