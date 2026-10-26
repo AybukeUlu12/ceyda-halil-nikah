@@ -1,0 +1,1 @@
+GitHub ana klasörüne index.html, style.css, script.js ve davetiye.png dosyalarını yükleyin. Aynı isimde olanları güncelleyin. Eski kapak.jpg ve muzik.mp3 dosyaları GitHub'da KALMALI; zip içinde tekrar bulunmuyor. Eski index (1).html / style (1).css dosyaları bu sürümde kullanılmıyor. Siteyi açarken önbellek nedeniyle eski görünüm varsa gizli sekmede kontrol edin.
