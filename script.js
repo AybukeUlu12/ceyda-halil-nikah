@@ -7,3 +7,6 @@ const cover=document.getElementById('cover');const audio=document.getElementById
 function openInvitation(){cover.classList.add('opened');audio.play().catch(()=>{});}
 cover.addEventListener('click',openInvitation);cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvitation();}});
 toggle.addEventListener('click',()=>{if(audio.paused){audio.play().catch(()=>{});}else{audio.pause();}});
+
+function syncMusicIcon(){toggle.classList.toggle('is-muted',audio.paused);toggle.setAttribute('aria-label',audio.paused?'Müziği aç':'Müziği kapat');}
+audio.addEventListener('play',syncMusicIcon);audio.addEventListener('pause',syncMusicIcon);audio.addEventListener('ended',syncMusicIcon);syncMusicIcon();
