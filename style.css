@@ -10,13 +10,17 @@ body{font-family:"Cormorant Garamond",Georgia,serif}
 .invitation.visible{opacity:1}
 .artboard{position:relative;width:100%;aspect-ratio:852/1846;overflow:hidden}
 .reference{display:block;width:100%;height:100%;object-fit:fill}
-.time-number{position:absolute;top:61.5%;width:10%;height:3.7%;display:flex;align-items:center;justify-content:center;color:var(--green);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(18px,5.6vw,49px);font-weight:400;line-height:1;background:#f8f4ed}
-.n1{left:11.5%}.n2{left:32.6%}.n3{left:53.2%}.n4{left:74.1%}
-.live-map{position:absolute;left:7.75%;top:77.2%;width:76.5%;height:11.25%;overflow:hidden;border-radius:clamp(8px,2vw,20px);border:1px solid #b18a4d;background:#f7f2e9}
-.live-map iframe{width:100%;height:100%;border:0}
-.route{position:absolute;left:25.5%;top:89.8%;width:43.8%;height:3.8%;border-radius:999px}
-.route:focus-visible,.music:focus-visible{outline:3px solid #263e32;outline-offset:3px}
-.music{position:absolute;top:13.1%;left:80.8%;width:12.6%;height:6.1%;border:0;border-radius:50%;background:transparent;cursor:pointer}
+/* The original davetiye.png already contains static countdown digits.
+   Mask their entire numeral area, then paint exactly one live value per box. */
+.time-number{position:absolute;z-index:2;top:61.0%;width:12.4%;height:3.9%;display:flex;align-items:center;justify-content:center;color:var(--green);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(18px,5.6vw,49px);font-weight:400;line-height:1;background:var(--paper);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.n1{left:10.3%}.n2{left:31.4%}.n3{left:52.1%}.n4{left:73.0%}
+/* The source artwork also contains a map screenshot. Fully conceal that
+   screenshot so only one real, interactive map remains visible. */
+.live-map{position:absolute;z-index:3;left:7.65%;top:77.0%;width:77.9%;height:11.7%;overflow:hidden;border-radius:clamp(8px,2vw,20px);border:1px solid #b18a4d;background:var(--paper);isolation:isolate}
+.live-map iframe{display:block;width:100%;height:100%;border:0;background:var(--paper)}
+.route{position:absolute;z-index:4;left:25.5%;top:89.8%;width:43.8%;height:3.8%;border-radius:999px}
+.route:focus-visible,.music:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.music{position:absolute;z-index:5;top:13.1%;left:80.8%;width:12.6%;height:6.1%;border:0;border-radius:50%;background:transparent;cursor:pointer}
 .music.muted:after{content:"";position:absolute;left:14%;top:48%;width:72%;height:2px;background:#ad8646;transform:rotate(-40deg)}
 @media(min-width:853px){.time-number{font-size:49px}}
 @media(prefers-reduced-motion:reduce){.cover,.invitation{transition:none}}
