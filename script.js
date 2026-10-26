@@ -11,7 +11,7 @@ openButton.addEventListener('click',()=>{
  playMusic(); // iPhone requires playback inside this direct tap event.
  invitation.inert=false;invitation.classList.add('visible');
  cover.classList.add('opening');toggle.hidden=false;
- window.setTimeout(()=>{cover.hidden=true;},1650);
+ window.setTimeout(()=>{cover.hidden=true;},950);
 });
 toggle.addEventListener('click',()=>{if(music.paused)playMusic();else music.pause();});
 music.addEventListener('play',syncMusic);music.addEventListener('pause',syncMusic);
