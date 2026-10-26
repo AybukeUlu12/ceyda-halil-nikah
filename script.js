@@ -6,13 +6,15 @@ const toggle=document.getElementById('musicToggle');
 let opened=false;
 function syncMusic(){toggle.classList.toggle('muted',music.paused);toggle.setAttribute('aria-label',music.paused?'Müziği aç':'Müziği kapat');}
 function playMusic(){const promise=music.play();if(promise&&promise.catch)promise.catch(syncMusic);}
-openButton.addEventListener('click',()=>{
+function openInvitation(){
  if(opened)return;opened=true;
  playMusic(); // iPhone requires playback inside this direct tap event.
  invitation.inert=false;invitation.classList.add('visible');
  cover.classList.add('opening');toggle.hidden=false;
- window.setTimeout(()=>{cover.hidden=true;},950);
-});
+ window.setTimeout(()=>{cover.hidden=true;},800);
+}
+openButton.addEventListener('click',openInvitation);
+cover.addEventListener('click',openInvitation);
 toggle.addEventListener('click',()=>{if(music.paused)playMusic();else music.pause();});
 music.addEventListener('play',syncMusic);music.addEventListener('pause',syncMusic);
 music.addEventListener('error',()=>{toggle.classList.add('muted');toggle.title='Müzik dosyası yüklenemedi';});
